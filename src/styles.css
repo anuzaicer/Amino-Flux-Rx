@@ -1,0 +1,508 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-electric: var(--electric);
+  --color-cyan-glow: var(--cyan-glow);
+  --color-deep: var(--deep);
+  --color-home-care: var(--home-care);
+  --color-home-panel: var(--home-panel);
+  --color-home-heading: var(--home-heading);
+  --color-home-copy: var(--home-copy);
+  --color-home-muted: var(--home-muted);
+  --color-home-track: var(--home-track);
+  --color-home-line: var(--home-line);
+  --color-home-accent: var(--home-accent);
+  --color-home-accent-soft: var(--home-accent-soft);
+  --color-provider-canvas: var(--provider-canvas);
+  --color-provider-surface: var(--provider-surface);
+  --color-provider-ink: var(--provider-ink);
+  --color-provider-muted: var(--provider-muted);
+  --color-provider-border: var(--provider-border);
+  --color-provider-accent: var(--provider-accent);
+  --color-provider-accent-foreground: var(--provider-accent-foreground);
+  --color-provider-accent-soft: var(--provider-accent-soft);
+  --color-provider-deep: var(--provider-deep);
+  --color-provider-overlay: var(--provider-overlay);
+  --shadow-provider-soft: var(--provider-shadow-soft);
+  --color-admin-canvas: var(--admin-canvas);
+  --color-admin-surface: var(--admin-surface);
+  --color-admin-ink: var(--admin-ink);
+  --color-admin-muted: var(--admin-muted);
+  --color-admin-border: var(--admin-border);
+  --color-admin-accent: var(--admin-accent);
+  --color-admin-accent-foreground: var(--admin-accent-foreground);
+  --color-admin-accent-soft: var(--admin-accent-soft);
+  --color-admin-deep: var(--admin-deep);
+  --color-admin-overlay: var(--admin-overlay);
+  --shadow-admin-soft: var(--admin-shadow-soft);
+  --color-skeuo-surface: var(--skeuo-surface);
+  --color-skeuo-well: var(--skeuo-well);
+  --color-skeuo-edge: var(--skeuo-edge);
+  --color-gate-surface: var(--gate-surface);
+  --color-gate-ink: var(--gate-ink);
+  --color-gate-muted: var(--gate-muted);
+  --color-gate-men: var(--gate-men);
+  --color-gate-women: var(--gate-women);
+  --color-clinical-canvas: var(--clinical-canvas);
+  --color-clinical-tint: var(--clinical-tint);
+  --color-clinical-ink: var(--clinical-ink);
+  --color-clinical-copy: var(--clinical-copy);
+  --color-clinical-border: var(--clinical-border);
+  --color-auth-canvas: var(--auth-canvas);
+  --color-auth-surface: var(--auth-surface);
+  --color-auth-ink: var(--auth-ink);
+  --color-auth-copy: var(--auth-copy);
+  --color-auth-border: var(--auth-border);
+  --color-auth-control: var(--auth-control);
+  --color-auth-accent: var(--auth-accent);
+  --color-auth-accent-foreground: var(--auth-accent-foreground);
+
+  --font-display: "Space Grotesk", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --font-editorial: "Cormorant Garamond", Georgia, serif;
+  --font-provider-display: "Sora", ui-sans-serif, system-ui, sans-serif;
+  --font-provider-body: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-admin-display: "Sora", ui-sans-serif, system-ui, sans-serif;
+  --font-admin-body: "Manrope", ui-sans-serif, system-ui, sans-serif;
+
+  --animate-float: float 9s ease-in-out infinite;
+  --animate-float-slow: float 14s ease-in-out infinite;
+  --animate-spin-slow: spin 24s linear infinite;
+  --animate-pulse-glow: pulseGlow 3.5s ease-in-out infinite;
+  --animate-drift: drift 18s linear infinite;
+  --animate-shimmer: shimmer 3s linear infinite;
+}
+
+:root {
+  --radius: 0.875rem;
+
+  /* Brand green canvas + blue accents */
+  --green: #2173d1;
+  --green-deep: #1a5bb5;
+  --blue: #5c9330;
+  --blue-soft: #92c763;
+
+  --background: #050816;
+  --foreground: #ffffff;
+
+  --card: #ffffff;
+  --card-foreground: oklch(0.21 0.03 265);
+  --popover: #ffffff;
+  --popover-foreground: oklch(0.21 0.03 265);
+
+  --primary: #5c9330;
+  --primary-foreground: #ffffff;
+  --secondary: oklch(0.96 0.008 255);
+  --secondary-foreground: oklch(0.21 0.03 265);
+  --muted: oklch(0.96 0.008 255);
+  --muted-foreground: oklch(0.48 0.02 258);
+  --accent: #5c9330;
+  --accent-foreground: #ffffff;
+  --destructive: oklch(0.65 0.22 25);
+  --destructive-foreground: oklch(0.98 0 0);
+
+  --border: rgba(116, 180, 57, 0.35);
+  --input: rgba(116, 180, 57, 0.22);
+  --ring: #5c9330;
+
+  --electric: #5c9330;
+  --cyan-glow: #92c763;
+  --deep: #1a5bb5;
+
+  /* Signed-in homepage care section */
+  --home-care: oklch(0.985 0.004 250);
+  --home-panel: oklch(1 0 0);
+  --home-heading: oklch(0.23 0.04 255);
+  --home-copy: oklch(0.46 0.03 255);
+  --home-muted: oklch(0.965 0.012 245);
+  --home-track: oklch(0.9 0.018 250);
+  --home-line: oklch(0.86 0.022 250);
+  --home-accent: oklch(0.72 0.15 237);
+  --home-accent-soft: oklch(0.72 0.15 237 / 0.12);
+  --shadow-home-card: 0 18px 40px -28px oklch(0.23 0.04 255 / 0.28);
+
+  /* Practitioner portal — clinical green */
+  --provider-canvas: oklch(0.975 0.008 135);
+  --provider-surface: oklch(1 0 0);
+  --provider-ink: oklch(0.29 0.055 158);
+  --provider-muted: oklch(0.52 0.028 155);
+  --provider-border: oklch(0.9 0.02 145);
+  --provider-accent: oklch(0.61 0.145 134);
+  --provider-accent-foreground: oklch(1 0 0);
+  --provider-accent-soft: oklch(0.94 0.055 135);
+  --provider-deep: oklch(0.31 0.07 157);
+  --provider-overlay: oklch(0.12 0.02 155 / 0.62);
+  --provider-shadow-soft: 0 12px 30px -20px oklch(0.31 0.07 157 / 0.35);
+
+  /* Admin portal — clinical blue (same system as practitioner portal) */
+  --admin-canvas: oklch(0.975 0.008 250);
+  --admin-surface: oklch(1 0 0);
+  --admin-ink: oklch(0.29 0.055 258);
+  --admin-muted: oklch(0.52 0.028 255);
+  --admin-border: oklch(0.9 0.018 250);
+  --admin-accent: oklch(0.56 0.155 255);
+  --admin-accent-foreground: oklch(1 0 0);
+  --admin-accent-soft: oklch(0.94 0.04 253);
+  --admin-deep: oklch(0.31 0.08 262);
+  --admin-overlay: oklch(0.12 0.02 258 / 0.62);
+  --admin-shadow-soft: 0 12px 30px -20px oklch(0.31 0.08 262 / 0.35);
+
+  /* Product surfaces — tactile laboratory instrument */
+  --skeuo-surface: oklch(0.97 0 0);
+  --skeuo-well: oklch(0.94 0.004 255);
+  --skeuo-edge: oklch(1 0 0 / 0.72);
+  --skeuo-shadow-raised:
+    10px 10px 22px oklch(0.74 0.01 255 / 0.5), -9px -9px 20px oklch(1 0 0 / 0.9);
+  --skeuo-shadow-card:
+    14px 16px 34px oklch(0.02 0.02 255 / 0.32), -4px -4px 14px oklch(1 0 0 / 0.22),
+    inset 1px 1px 0 oklch(1 0 0 / 0.88);
+  --skeuo-shadow-inset:
+    inset 7px 7px 14px oklch(0.75 0.01 255 / 0.48), inset -7px -7px 14px oklch(1 0 0 / 0.95);
+
+  /* Personalization dialog — soft clinical neumorphism */
+  --gate-surface: oklch(0.955 0.008 245);
+  --gate-ink: oklch(0.25 0.035 255);
+  --gate-muted: oklch(0.5 0.025 255);
+  --gate-men: #2173d1;
+  --gate-women: #74b439;
+
+  /* Customer-facing reading surfaces — gender color remains the accent. */
+  --clinical-canvas: oklch(0.995 0.002 255);
+  --clinical-tint: oklch(0.958 0.02 252);
+  --clinical-ink: oklch(0.19 0.06 258);
+  --clinical-copy: oklch(0.45 0.04 258);
+  --clinical-border: oklch(0.885 0.025 252);
+  /* Standalone customer authentication */
+  --auth-canvas: oklch(0.992 0.003 250);
+  --auth-surface: oklch(0.975 0.006 250);
+  --auth-ink: oklch(0.2 0.045 257);
+  --auth-copy: oklch(0.48 0.035 255);
+  --auth-border: oklch(0.89 0.018 250);
+  --auth-control: oklch(1 0 0);
+  --auth-accent: #2173d1;
+  --auth-accent-foreground: oklch(1 0 0);
+  --auth-shadow: 0 24px 70px -38px oklch(0.2 0.045 257 / 0.35);
+  --gate-shadow-raised:
+    13px 13px 28px oklch(0.72 0.018 250 / 0.58), -13px -13px 28px oklch(1 0 0 / 0.92);
+  --gate-shadow-soft: 7px 7px 15px oklch(0.72 0.018 250 / 0.52), -7px -7px 15px oklch(1 0 0 / 0.88);
+  --gate-shadow-inset:
+    inset 5px 5px 11px oklch(0.72 0.018 250 / 0.45), inset -5px -5px 11px oklch(1 0 0 / 0.88);
+
+  --gradient-hero:
+    radial-gradient(ellipse at 50% 18%, rgba(116, 180, 57, 0.18), transparent 60%),
+    radial-gradient(ellipse at 82% 78%, rgba(146, 199, 99, 0.12), transparent 58%),
+    linear-gradient(180deg, #050816 0%, #0a1030 100%);
+  --gradient-electric: linear-gradient(135deg, #92c763, #5c9330);
+  --gradient-card: linear-gradient(160deg, #ffffff 0%, #f3f8ec 100%);
+  --gradient-border: linear-gradient(
+    135deg,
+    rgba(116, 180, 57, 0.6),
+    rgba(255, 255, 255, 0.25),
+    transparent
+  );
+
+  --shadow-glow: 0 0 60px -10px rgba(116, 180, 57, 0.55);
+  --shadow-glow-cyan: 0 0 80px -10px rgba(146, 199, 99, 0.5);
+  --shadow-elevated: 0 30px 80px -30px rgba(0, 0, 0, 0.45);
+}
+
+.auth-theme-women {
+  --auth-accent: #5c9330;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-20px) translateX(8px);
+  }
+}
+@keyframes pulseGlow {
+  0%,
+  100% {
+    opacity: 0.6;
+    filter: blur(20px);
+  }
+  50% {
+    opacity: 1;
+    filter: blur(28px);
+  }
+}
+@keyframes drift {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, -10%, 0);
+  }
+}
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    font-size: 100%;
+    scroll-padding-top: 6rem;
+  }
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+  body {
+    background: #050816;
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  ::selection {
+    background: rgba(116, 180, 57, 0.32);
+    color: #ffffff;
+  }
+  label {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 640px) {
+  html {
+    scroll-padding-top: 8rem;
+  }
+}
+
+@utility glass {
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.96), rgba(243, 248, 236, 0.92));
+  backdrop-filter: blur(18px) saturate(140%);
+  border: 1px solid rgba(116, 180, 57, 0.22);
+  box-shadow: 0 18px 40px -26px rgba(0, 0, 0, 0.45);
+}
+@utility glass-strong {
+  background: linear-gradient(160deg, #ffffff, rgba(243, 248, 236, 0.97));
+  backdrop-filter: blur(28px) saturate(160%);
+  border: 1px solid rgba(116, 180, 57, 0.28);
+  box-shadow: 0 24px 60px -34px rgba(0, 0, 0, 0.5);
+}
+@utility text-gradient {
+  background: linear-gradient(135deg, #ffffff 0%, #92c763 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+@utility text-electric {
+  background: linear-gradient(135deg, #92c763, #5c9330);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+@utility glow-electric {
+  box-shadow:
+    0 18px 40px -16px rgba(116, 180, 57, 0.6),
+    0 0 0 1px rgba(116, 180, 57, 0.18);
+}
+@utility grid-bg {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+}
+
+@utility shadow-home-card {
+  box-shadow: var(--shadow-home-card);
+}
+
+@utility skeuo-card {
+  background: var(--skeuo-surface);
+  border: 1px solid var(--skeuo-edge);
+  box-shadow: var(--skeuo-shadow-card);
+}
+
+@utility skeuo-raised {
+  background: var(--skeuo-surface);
+  border: 1px solid var(--skeuo-edge);
+  box-shadow: var(--skeuo-shadow-raised);
+}
+
+@utility skeuo-inset {
+  background: var(--skeuo-well);
+  border: 1px solid var(--skeuo-edge);
+  box-shadow: var(--skeuo-shadow-inset);
+}
+
+@utility skeuo-control {
+  box-shadow:
+    5px 6px 12px oklch(0.15 0.02 255 / 0.28),
+    -3px -3px 8px oklch(1 0 0 / 0.3),
+    inset 1px 1px 0 oklch(1 0 0 / 0.32) !important;
+}
+
+@utility gate-neumo-panel {
+  background: var(--gate-surface);
+  box-shadow: var(--gate-shadow-raised);
+}
+
+@utility gate-neumo-raised {
+  background: var(--gate-surface);
+  box-shadow: var(--gate-shadow-soft);
+}
+
+@utility gate-neumo-choice {
+  box-shadow: var(--gate-shadow-soft);
+}
+
+@utility gate-neumo-inset {
+  background: var(--gate-surface);
+  box-shadow: var(--gate-shadow-inset);
+}
+
+.skeuo-control:active {
+  box-shadow:
+    inset 3px 3px 7px oklch(0.12 0.02 255 / 0.34),
+    inset -2px -2px 5px oklch(1 0 0 / 0.22) !important;
+  transform: translateY(1px);
+}
+
+.home-care-grid {
+  background-image:
+    linear-gradient(
+      to right,
+      color-mix(in oklab, var(--home-line) 45%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in oklab, var(--home-line) 45%, transparent) 1px,
+      transparent 1px
+    );
+  background-size: 64px 64px;
+  mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 112.5%;
+  }
+}
+
+@keyframes preloader-logo-in {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+    filter: blur(12px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes preloader-bar-in {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.preloader-logo {
+  animation: preloader-logo-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.preloader-bar {
+  transform-origin: left;
+  animation: preloader-bar-in 1.1s ease-in-out 0.2s both;
+}
+
+/* Hide scrollbar for the homepage treatments slider while keeping scroll. */
+.amino-scroll-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.amino-scroll-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Respect the visitor's reduced-motion preference for non-essential motion. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── Product card: Elevated pharmaceutical premium ────────────── */
+/* Hover fills the card body with the gender accent → deep gradient. */
+.card-grad {
+  transition: background-color 0.5s ease;
+}
+.group:hover .card-grad {
+  background-color: transparent;
+  background-image: linear-gradient(180deg, var(--ca, #2173d1), var(--ca-deep, #0f1e33));
+}
+/* Card CTA: accent fill normally, inverts to white with accent text on hover. */
+.card-cta {
+  background-color: var(--ca, #2173d1);
+  color: #ffffff;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.group:hover .card-cta {
+  background-color: #ffffff;
+  color: var(--ca, #2173d1);
+}
