@@ -1,4 +1,4 @@
-import logoAsset from "@/assets/amino-flux-logo-transparent.png.asset.json";
+import logoAsset from "@/assets/amino-flux-logo-transparent.png";
 import { useState } from "react";
 import { ProductSearch } from "@/components/search/ProductSearch";
 import { Search, User, ShoppingCart, Menu, X, ChevronDown } from "lucide-react";
@@ -160,7 +160,7 @@ export function SiteHeader() {
       <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-2 px-4 sm:gap-5 sm:px-6 lg:px-10 xl:flex xl:gap-7">
         <Link to="/" className="flex shrink-0 items-center gap-3">
           <img
-            src={logoAsset.url}
+            src={logoAsset}
             alt="Amino Flux Rx logo"
             width={96}
             height={96}

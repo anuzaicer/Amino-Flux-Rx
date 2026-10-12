@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Mars, Venus, X } from "lucide-react";
 import heroPortraitMen from "@/assets/hero-portrait-men.jpg";
 import heroPortraitWomen from "@/assets/hero-portrait.jpg";
-import logoAsset from "@/assets/amino-flux-logo-transparent.png.asset.json";
+import logoAsset from "@/assets/amino-flux-logo-transparent.png";
 import { useGender, type Gender } from "./GenderContext";
 
 const OPTIONS: {
@@ -88,7 +88,7 @@ export function GenderGate() {
             <div className="flex items-center gap-2.5">
               <span className="gate-neumo-raised grid h-10 w-10 place-items-center rounded-xl p-1">
                 <img
-                  src={logoAsset.url}
+                  src={logoAsset}
                   alt="Amino Flux Rx"
                   width={40}
                   height={40}

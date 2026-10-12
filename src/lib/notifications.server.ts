@@ -5,7 +5,7 @@
  * event key in `public.notification_log` before sending. The claim is the
  * idempotency guard: a second call with the same key (a retry, a re-run of the
  * reminder job, a double click in the admin portal) short-circuits and sends
- * nothing. The same key is also passed to Lovable's email API as its
+ * nothing. The same key is also passed to the email API (Resend) as its
  * idempotency key, so duplicates are suppressed on both sides.
  *
  * Never import this from client code.
@@ -38,7 +38,7 @@ async function releaseEvent(eventKey: string) {
 
 /**
  * Send a template email at most once for `eventKey`. A suppressed recipient
- * counts as handled (Lovable enforces suppression server-side); a transport
+ * counts as handled; a transport
  * failure releases the claim so a later run can retry.
  */
 export async function sendOnce(
@@ -51,10 +51,14 @@ export async function sendOnce(
   const claimed = await claimEvent(eventKey);
   if (!claimed) return { sent: false, reason: "already_sent" };
   try {
-    return await sendTemplateEmail(templateName, to, {
+    const result = await sendTemplateEmail(templateName, to, {
       templateData,
       idempotencyKey: eventKey,
     });
+    // Email not set up yet: release the claim so the event is still sendable
+    // once RESEND_API_KEY is configured.
+    if (!result.sent && result.reason === "email_not_configured") await releaseEvent(eventKey);
+    return result;
   } catch (error) {
     await releaseEvent(eventKey);
     throw error;

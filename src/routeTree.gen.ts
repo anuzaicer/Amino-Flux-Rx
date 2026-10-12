@@ -24,9 +24,6 @@ import { Route as AuthenticatedProviderRouteImport } from './routes/_authenticat
 import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
 import { Route as AuthenticatedAccountRouteImport } from './routes/_authenticated/account'
 import { Route as AuthenticatedAccountOrdersRouteImport } from './routes/_authenticated/account_.orders'
-import { Route as LovableEmailTransactionalPreviewRouteImport } from './routes/lovable/email/transactional/preview'
-import { Route as LovableEmailAuthWebhookRouteImport } from './routes/lovable/email/auth/webhook'
-import { Route as LovableEmailAuthPreviewRouteImport } from './routes/lovable/email/auth/preview'
 import { Route as ApiPublicHooksNotificationsRouteImport } from './routes/api/public/hooks/notifications'
 import { Route as AuthenticatedAccountOrdersOrderIdRouteImport } from './routes/_authenticated/account_.orders.$orderId'
 
@@ -105,22 +102,6 @@ const AuthenticatedAccountOrdersRoute =
     path: '/account/orders',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
-const LovableEmailTransactionalPreviewRoute =
-  LovableEmailTransactionalPreviewRouteImport.update({
-    id: '/lovable/email/transactional/preview',
-    path: '/lovable/email/transactional/preview',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const LovableEmailAuthWebhookRoute = LovableEmailAuthWebhookRouteImport.update({
-  id: '/lovable/email/auth/webhook',
-  path: '/lovable/email/auth/webhook',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LovableEmailAuthPreviewRoute = LovableEmailAuthPreviewRouteImport.update({
-  id: '/lovable/email/auth/preview',
-  path: '/lovable/email/auth/preview',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ApiPublicHooksNotificationsRoute =
   ApiPublicHooksNotificationsRouteImport.update({
     id: '/api/public/hooks/notifications',
@@ -151,9 +132,6 @@ export interface FileRoutesByFullPath {
   '/account/orders': typeof AuthenticatedAccountOrdersRouteWithChildren
   '/account/orders/$orderId': typeof AuthenticatedAccountOrdersOrderIdRoute
   '/api/public/hooks/notifications': typeof ApiPublicHooksNotificationsRoute
-  '/lovable/email/auth/preview': typeof LovableEmailAuthPreviewRoute
-  '/lovable/email/auth/webhook': typeof LovableEmailAuthWebhookRoute
-  '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -172,9 +150,6 @@ export interface FileRoutesByTo {
   '/account/orders': typeof AuthenticatedAccountOrdersRouteWithChildren
   '/account/orders/$orderId': typeof AuthenticatedAccountOrdersOrderIdRoute
   '/api/public/hooks/notifications': typeof ApiPublicHooksNotificationsRoute
-  '/lovable/email/auth/preview': typeof LovableEmailAuthPreviewRoute
-  '/lovable/email/auth/webhook': typeof LovableEmailAuthWebhookRoute
-  '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -195,9 +170,6 @@ export interface FileRoutesById {
   '/_authenticated/account_/orders': typeof AuthenticatedAccountOrdersRouteWithChildren
   '/_authenticated/account_/orders/$orderId': typeof AuthenticatedAccountOrdersOrderIdRoute
   '/api/public/hooks/notifications': typeof ApiPublicHooksNotificationsRoute
-  '/lovable/email/auth/preview': typeof LovableEmailAuthPreviewRoute
-  '/lovable/email/auth/webhook': typeof LovableEmailAuthWebhookRoute
-  '/lovable/email/transactional/preview': typeof LovableEmailTransactionalPreviewRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -218,9 +190,6 @@ export interface FileRouteTypes {
     | '/account/orders'
     | '/account/orders/$orderId'
     | '/api/public/hooks/notifications'
-    | '/lovable/email/auth/preview'
-    | '/lovable/email/auth/webhook'
-    | '/lovable/email/transactional/preview'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -239,9 +208,6 @@ export interface FileRouteTypes {
     | '/account/orders'
     | '/account/orders/$orderId'
     | '/api/public/hooks/notifications'
-    | '/lovable/email/auth/preview'
-    | '/lovable/email/auth/webhook'
-    | '/lovable/email/transactional/preview'
   id:
     | '__root__'
     | '/'
@@ -261,9 +227,6 @@ export interface FileRouteTypes {
     | '/_authenticated/account_/orders'
     | '/_authenticated/account_/orders/$orderId'
     | '/api/public/hooks/notifications'
-    | '/lovable/email/auth/preview'
-    | '/lovable/email/auth/webhook'
-    | '/lovable/email/transactional/preview'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -279,9 +242,6 @@ export interface RootRouteChildren {
   CategoryCategoryRoute: typeof CategoryCategoryRoute
   ProductProductIdRoute: typeof ProductProductIdRoute
   ApiPublicHooksNotificationsRoute: typeof ApiPublicHooksNotificationsRoute
-  LovableEmailAuthPreviewRoute: typeof LovableEmailAuthPreviewRoute
-  LovableEmailAuthWebhookRoute: typeof LovableEmailAuthWebhookRoute
-  LovableEmailTransactionalPreviewRoute: typeof LovableEmailTransactionalPreviewRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -391,27 +351,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAccountOrdersRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
-    '/lovable/email/transactional/preview': {
-      id: '/lovable/email/transactional/preview'
-      path: '/lovable/email/transactional/preview'
-      fullPath: '/lovable/email/transactional/preview'
-      preLoaderRoute: typeof LovableEmailTransactionalPreviewRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/lovable/email/auth/webhook': {
-      id: '/lovable/email/auth/webhook'
-      path: '/lovable/email/auth/webhook'
-      fullPath: '/lovable/email/auth/webhook'
-      preLoaderRoute: typeof LovableEmailAuthWebhookRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/lovable/email/auth/preview': {
-      id: '/lovable/email/auth/preview'
-      path: '/lovable/email/auth/preview'
-      fullPath: '/lovable/email/auth/preview'
-      preLoaderRoute: typeof LovableEmailAuthPreviewRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/api/public/hooks/notifications': {
       id: '/api/public/hooks/notifications'
       path: '/api/public/hooks/notifications'
@@ -474,9 +413,6 @@ const rootRouteChildren: RootRouteChildren = {
   CategoryCategoryRoute: CategoryCategoryRoute,
   ProductProductIdRoute: ProductProductIdRoute,
   ApiPublicHooksNotificationsRoute: ApiPublicHooksNotificationsRoute,
-  LovableEmailAuthPreviewRoute: LovableEmailAuthPreviewRoute,
-  LovableEmailAuthWebhookRoute: LovableEmailAuthWebhookRoute,
-  LovableEmailTransactionalPreviewRoute: LovableEmailTransactionalPreviewRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

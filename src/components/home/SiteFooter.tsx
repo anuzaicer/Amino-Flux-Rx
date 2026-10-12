@@ -1,5 +1,5 @@
-import logoAsset from "@/assets/amino-flux-logo-footer.png.asset.json";
-import liveBetterAsset from "@/assets/live-better.png.asset.json";
+import logoAsset from "@/assets/amino-flux-logo-footer.png";
+import liveBetterAsset from "@/assets/live-better.png";
 import footerBg from "@/assets/footer-hex-bg.jpg";
 import { Link } from "@tanstack/react-router";
 import { useGender } from "@/components/gender/GenderContext";
@@ -89,7 +89,7 @@ export function SiteFooter() {
           <div>
             <div className="flex items-center gap-3">
               <img
-                src={logoAsset.url}
+                src={logoAsset}
                 alt="Amino Flux Rx logo"
                 width={160}
                 height={160}
@@ -102,7 +102,7 @@ export function SiteFooter() {
               in all 50 states.
             </p>
             <img
-              src={liveBetterAsset.url}
+              src={liveBetterAsset}
               alt="Live Better"
               width={794}
               height={444}

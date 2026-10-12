@@ -1,7 +1,7 @@
 import type { CatalogGroup } from "@/data/catalog";
 import pGlp1 from "@/assets/p-glp1.jpg";
 import pLabpanel from "@/assets/p-labpanel.jpg";
-import pMaleComprehensive from "@/assets/p-male-comprehensive.png.asset.json";
+import pMaleComprehensive from "@/assets/p-male-comprehensive.png";
 import pTrtSkincare from "@/assets/p-trt-skincare.jpg";
 import cLab from "@/assets/c-lab.jpg";
 import cVitamins from "@/assets/c-vitamins.jpg";
@@ -23,7 +23,7 @@ export const GROUP_IMAGE: Record<CatalogGroup, string> = {
 
 /** Per-product image overrides (fall back to the group image when absent). */
 const PRODUCT_IMAGE: Record<string, string> = {
-  "lab-male-comprehensive": pMaleComprehensive.url,
+  "lab-male-comprehensive": pMaleComprehensive,
 };
 
 export function productImageFor(group: string | null | undefined, productId?: string): string {

@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState, type FormEvent } from "react";
 import { ArrowLeft, Check, Eye, EyeOff, Loader2, Mars, Venus } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
-import logoAsset from "@/assets/amino-flux-logo-transparent.png.asset.json";
+import logoAsset from "@/assets/amino-flux-logo-transparent.png";
 
 import { useAuth } from "@/hooks/useAuth";
 import { Button } from "@/components/ui/button";
@@ -159,7 +159,7 @@ function AuthPage() {
     <div className={`${themeClass} min-h-dvh bg-auth-canvas text-auth-ink`}>
       <main className="mx-auto flex min-h-dvh w-full max-w-xl flex-col items-center justify-center px-4 py-8 sm:px-6 sm:py-12">
         <Link to="/" className="rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-auth-accent">
-          <img src={logoAsset.url} alt="Amino Flux Rx" className="h-auto w-36 sm:w-40" />
+          <img src={logoAsset} alt="Amino Flux Rx" className="h-auto w-36 sm:w-40" />
         </Link>
         <h1 className="mt-5 text-center font-display text-3xl font-bold sm:text-4xl">Account login</h1>
         <p className="mt-2 text-center text-[15px] text-auth-copy">

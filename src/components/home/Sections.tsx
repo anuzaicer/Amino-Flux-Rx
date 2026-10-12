@@ -31,7 +31,7 @@ import { RequirementBadge } from "@/components/product/RequirementBadge";
 import { catalogFor, GROUP_LABEL, type CatalogGroup, type CatalogProduct } from "@/data/catalog";
 import pGlp1 from "@/assets/p-glp1.jpg";
 import pLabpanel from "@/assets/p-labpanel.jpg";
-import pMaleComprehensive from "@/assets/p-male-comprehensive.png.asset.json";
+import pMaleComprehensive from "@/assets/p-male-comprehensive.png";
 
 import pTrtSkincare from "@/assets/p-trt-skincare.jpg";
 import cLab from "@/assets/c-lab.jpg";
@@ -136,7 +136,7 @@ const GROUP_IMAGE: Record<CatalogGroup, string> = {
 
 /** Per-product image overrides (fall back to the group image when absent). */
 const PRODUCT_IMAGE: Record<string, string> = {
-  "lab-male-comprehensive": pMaleComprehensive.url,
+  "lab-male-comprehensive": pMaleComprehensive,
 };
 
 /** Stable pseudo-rating so cards stay lively without fake volatility. */
